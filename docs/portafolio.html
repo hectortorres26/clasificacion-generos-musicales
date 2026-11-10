@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Clasificación de Rock y Hip-Hop con aprendizaje automático</title>
+</head>
+<body>
+<h2>
+<strong>Objetivo del proyecto</strong>
+</h2>
+<p>Clasificar canciones de Rock y Hip-Hop a partir de ocho características acústicas de Echonest. El objetivo fue evaluar un modelo reproducible que considere el desequilibrio entre géneros y mida su rendimiento con pistas reservadas para prueba.</p>
+<p>
+<br>
+</p>
+<h2>
+<strong>Herramientas y metodología</strong>
+</h2>
+<p>Utilicé Python, pandas, NumPy, scikit-learn y Matplotlib. Validé y uní los archivos por identificador de pista, obteniendo 4.802 canciones: 3.892 Rock y 910 Hip-Hop. Reservé 1.201 pistas mediante una división estratificada y empleé las otras 3.601 para entrenamiento y selección.</p>
+<p>
+<br>
+</p>
+<p>Comparé una referencia mayoritaria, un árbol de decisión y una regresión logística mediante validación cruzada estratificada de cinco particiones. La imputación, el escalado y PCA se ajustan dentro de cada pipeline, utilizando exclusivamente los datos de entrenamiento. Seleccioné el modelo por F1 macro, una métrica que da el mismo peso a ambos géneros.</p>
+<p>
+<br>
+</p>
+<h2>
+<strong>Resultados principales</strong>
+</h2>
+<ul>
+<li>La regresión logística alcanzó <strong>F1 macro de 0,786</strong> en prueba, frente a 0,448 de la referencia que siempre predice Rock.</li>
+<li>
+<strong>Exactitud del 84,68 %</strong> y exactitud balanceada del 83,83 %.</li>
+<li>Detectó 188 de las 228 pistas Hip-Hop de prueba: <strong>recall del 82,46 %</strong>.</li>
+<li>F1 macro medio en validación cruzada: 0,819. El intervalo bootstrap del 95 % en prueba fue de 0,758 a 0,812.</li>
+</ul>
+<p>
+<br>
+</p>
+<h2>
+<strong>Interpretación y alcance</strong>
+</h2>
+<p>La mejora en F1 macro muestra la utilidad de evaluar ambas clases, más allá de la exactitud global. El modelo también clasificó 144 pistas Rock como Hip-Hop, por lo que la precisión de Hip-Hop fue del 56,63 %. Este error debe considerarse antes de usarlo para etiquetar un catálogo.</p>
+<p>
+<br>
+</p>
+<p>El análisis cubre dos géneros de una colección concreta. La separación por pista no garantiza independencia por artista o álbum. No se ha validado el modelo con audio nuevo ni con otros géneros; el intervalo bootstrap mantiene fijo el modelo entrenado.</p>
+<p>
+<br>
+</p>
+<h2>
+<strong>Calidad y reproducibilidad</strong>
+</h2>
+<p>Corregí la fuga de información del preprocesamiento, la importación de NumPy y el protocolo de evaluación. El repositorio incluye tres pruebas técnicas, cuaderno ejecutado, tablas, matriz de confusión y dependencias fijadas. Los datos proceden de una copia pública del material educativo de DataCamp basado en FMA; su identidad byte a byte con los archivos originales de Drive no está comprobada.</p>
+<p>
+<br>
+</p>
+<h2>
+<strong>Código, resultados y documentación</strong>
+</h2>
+<ul>
+<li>
+<a href="https://github.com/hectortorres26/clasificacion-generos-musicales">Repositorio completo en GitHub</a>
+</li>
+<li>
+<a href="https://github.com/hectortorres26/clasificacion-generos-musicales/blob/main/clasificador_canciones.ipynb">Cuaderno ejecutado con tablas y gráficos</a>
+</li>
+<li>
+<a href="https://github.com/hectortorres26/clasificacion-generos-musicales/tree/main/reports">Informes y métricas por clase</a>
+</li>
+<li>
+<a href="https://github.com/mdeff/fma">Proyecto de origen: Free Music Archive</a>
+</li>
+</ul>
+<p>
+<br>
+</p>
+</body>
+</html>
