@@ -1,0 +1,139 @@
+{
+  "n_pistas": 4802,
+  "n_train": 3601,
+  "n_test": 1201,
+  "seed": 42,
+  "clases": {
+    "Rock": 3892,
+    "Hip-Hop": 910
+  },
+  "clases_test": {
+    "Rock": 973,
+    "Hip-Hop": 228
+  },
+  "features": [
+    "acousticness",
+    "danceability",
+    "energy",
+    "instrumentalness",
+    "liveness",
+    "speechiness",
+    "tempo",
+    "valence"
+  ],
+  "cv": [
+    {
+      "modelo": "base_mayoritaria",
+      "f1_macro_media": 0.4476993741459253,
+      "f1_macro_desviacion": 0.0002119560641756765,
+      "balanced_accuracy_media": 0.5
+    },
+    {
+      "modelo": "arbol_balanceado",
+      "f1_macro_media": 0.8019426415949967,
+      "f1_macro_desviacion": 0.012034779483865747,
+      "balanced_accuracy_media": 0.8407780112917977
+    },
+    {
+      "modelo": "regresion_logistica",
+      "f1_macro_media": 0.8189859875762948,
+      "f1_macro_desviacion": 0.00804492365041061,
+      "balanced_accuracy_media": 0.8603242131391744
+    }
+  ],
+  "modelo_seleccionado": "regresion_logistica",
+  "test": {
+    "accuracy": 0.8467943380516236,
+    "balanced_accuracy": 0.8382827572528444,
+    "f1_macro": 0.7857685745307894,
+    "por_clase": {
+      "Hip-Hop": {
+        "precision": 0.5662650602409639,
+        "recall": 0.8245614035087719,
+        "f1-score": 0.6714285714285714,
+        "support": 228.0
+      },
+      "Rock": {
+        "precision": 0.953970080552359,
+        "recall": 0.8520041109969168,
+        "f1-score": 0.9001085776330076,
+        "support": 973.0
+      },
+      "accuracy": 0.8467943380516236,
+      "macro avg": {
+        "precision": 0.7601175703966614,
+        "recall": 0.8382827572528444,
+        "f1-score": 0.7857685745307894,
+        "support": 1201.0
+      },
+      "weighted avg": {
+        "precision": 0.8803674622084805,
+        "recall": 0.8467943380516236,
+        "f1-score": 0.8566955539738806,
+        "support": 1201.0
+      }
+    }
+  },
+  "baseline_test": {
+    "accuracy": 0.8101582014987511,
+    "balanced_accuracy": 0.5,
+    "f1_macro": 0.4475620975160994,
+    "por_clase": {
+      "Hip-Hop": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 228.0
+      },
+      "Rock": {
+        "precision": 0.8101582014987511,
+        "recall": 1.0,
+        "f1-score": 0.8951241950321988,
+        "support": 973.0
+      },
+      "accuracy": 0.8101582014987511,
+      "macro avg": {
+        "precision": 0.40507910074937553,
+        "recall": 0.5,
+        "f1-score": 0.4475620975160994,
+        "support": 1201.0
+      },
+      "weighted avg": {
+        "precision": 0.656356311455691,
+        "recall": 0.8101582014987511,
+        "f1-score": 0.7251922079653034,
+        "support": 1201.0
+      }
+    }
+  },
+  "f1_macro_ic95_bootstrap": [
+    0.7576307338634322,
+    0.8122095481583631
+  ],
+  "componentes_pca": 7,
+  "varianza_pca": 0.9525233245235474,
+  "fuentes": [
+    {
+      "archivo": "songs.csv",
+      "sha256": "3a2fee2daeb68bb387a8c3f306e6a26799c8b9c6a2ab7b74a83d7144dbd8747d",
+      "python": "3.11.9",
+      "paquetes": {
+        "pandas": "3.0.6",
+        "numpy": "2.4.6",
+        "matplotlib": "3.11.2",
+        "scikit-learn": "1.9.1"
+      }
+    },
+    {
+      "archivo": "echonest-metrics.json",
+      "sha256": "a1b8837781dfde332a1ae99a7f11cb29e2fa976c4b6821bd66af5b83fa201719",
+      "python": "3.11.9",
+      "paquetes": {
+        "pandas": "3.0.6",
+        "numpy": "2.4.6",
+        "matplotlib": "3.11.2",
+        "scikit-learn": "1.9.1"
+      }
+    }
+  ]
+}
