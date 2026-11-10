@@ -1,10 +1,14 @@
 .venv/
 __pycache__/
+*.py[cod]
 .ipynb_checkpoints/
 .env
 .env.*
-!.env.example
-data/
+data/*
+!data/README.md
 *.csv
-*.parquet
+!reports/*.csv
+*.pkl
+*.joblib
 .DS_Store
+.pytest_cache/
